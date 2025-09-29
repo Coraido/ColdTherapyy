@@ -1,7 +1,11 @@
 import { Redirect, Route } from 'react-router-dom';
-import { IonApp, IonRouterOutlet, setupIonicReact } from '@ionic/react';
+import { IonApp, IonRouterOutlet, IonSplitPane, setupIonicReact } from '@ionic/react';
 import { IonReactRouter } from '@ionic/react-router';
 import Home from './pages/Home';
+import ProductDetail from './pages/ProductDetail';
+import Checkout from './pages/Checkout';
+import SideMenu from './components/SideMenu';
+import { CartProvider } from './context/CartContext';
 
 /* Core CSS required for Ionic components to work properly */
 import '@ionic/react/css/core.css';
@@ -37,16 +41,27 @@ setupIonicReact();
 
 const App: React.FC = () => (
   <IonApp>
-    <IonReactRouter>
-      <IonRouterOutlet>
-        <Route exact path="/home">
-          <Home />
-        </Route>
-        <Route exact path="/">
-          <Redirect to="/home" />
-        </Route>
-      </IonRouterOutlet>
-    </IonReactRouter>
+    <CartProvider>
+      <IonReactRouter>
+        <SideMenu />
+        <IonSplitPane contentId="main">
+          <IonRouterOutlet id="main">
+            <Route exact path="/home">
+              <Home />
+            </Route>
+            <Route exact path="/product/:id">
+              <ProductDetail />
+            </Route>
+            <Route exact path="/checkout">
+              <Checkout />
+            </Route>
+            <Route exact path="/">
+              <Redirect to="/home" />
+            </Route>
+          </IonRouterOutlet>
+        </IonSplitPane>
+      </IonReactRouter>
+    </CartProvider>
   </IonApp>
 );
 

@@ -1,2 +1,105 @@
+/* Cold Therapy Ice Cream - Classic Ice Cream Parlor Theme */
 /* For information on how to create your own theme, please see:
 http://ionicframework.com/docs/theming/ */
+
+/** Ionic CSS Variables **/
+:root {
+  /** Primary - Coral Pink (Fun & Inviting) **/
+  --ion-color-primary: #FF6B9D;
+  --ion-color-primary-rgb: 255, 107, 157;
+  --ion-color-primary-contrast: #ffffff;
+  --ion-color-primary-contrast-rgb: 255, 255, 255;
+  --ion-color-primary-shade: #e05e8a;
+  --ion-color-primary-tint: #ff7aa7;
+
+  /** Secondary - Mint Green (Cool & Refreshing) **/
+  --ion-color-secondary: #4ECDC4;
+  --ion-color-secondary-rgb: 78, 205, 196;
+  --ion-color-secondary-contrast: #ffffff;
+  --ion-color-secondary-contrast-rgb: 255, 255, 255;
+  --ion-color-secondary-shade: #45b5ac;
+  --ion-color-secondary-tint: #60d3ca;
+
+  /** Tertiary - Sunny Yellow (Vanilla/Lemon) **/
+  --ion-color-tertiary: #FFD93D;
+  --ion-color-tertiary-rgb: 255, 217, 61;
+  --ion-color-tertiary-contrast: #000000;
+  --ion-color-tertiary-contrast-rgb: 0, 0, 0;
+  --ion-color-tertiary-shade: #e0bf36;
+  --ion-color-tertiary-tint: #ffdd50;
+
+  /** Success - Fresh Mint **/
+  --ion-color-success: #2DD4BF;
+  --ion-color-success-rgb: 45, 212, 191;
+  --ion-color-success-contrast: #ffffff;
+  --ion-color-success-contrast-rgb: 255, 255, 255;
+  --ion-color-success-shade: #28bba8;
+  --ion-color-success-tint: #42d9c5;
+
+  /** Warning - Orange Sherbet **/
+  --ion-color-warning: #FF8C42;
+  --ion-color-warning-rgb: 255, 140, 66;
+  --ion-color-warning-contrast: #ffffff;
+  --ion-color-warning-contrast-rgb: 255, 255, 255;
+  --ion-color-warning-shade: #e07b3a;
+  --ion-color-warning-tint: #ff9755;
+
+  /** Danger - Cherry Red **/
+  --ion-color-danger: #E74C3C;
+  --ion-color-danger-rgb: 231, 76, 60;
+  --ion-color-danger-contrast: #ffffff;
+  --ion-color-danger-contrast-rgb: 255, 255, 255;
+  --ion-color-danger-shade: #cb4335;
+  --ion-color-danger-tint: #ea6250;
+
+  /** Dark - Rich Chocolate **/
+  --ion-color-dark: #2C1810;
+  --ion-color-dark-rgb: 44, 24, 16;
+  --ion-color-dark-contrast: #ffffff;
+  --ion-color-dark-contrast-rgb: 255, 255, 255;
+  --ion-color-dark-shade: #27150e;
+  --ion-color-dark-tint: #422f28;
+
+  /** Medium - Soft Gray **/
+  --ion-color-medium: #95A5A6;
+  --ion-color-medium-rgb: 149, 165, 166;
+  --ion-color-medium-contrast: #ffffff;
+  --ion-color-medium-contrast-rgb: 255, 255, 255;
+  --ion-color-medium-shade: #839192;
+  --ion-color-medium-tint: #a0afb0;
+
+  /** Light - Cream **/
+  --ion-color-light: #FFFEF7;
+  --ion-color-light-rgb: 255, 254, 247;
+  --ion-color-light-contrast: #000000;
+  --ion-color-light-contrast-rgb: 0, 0, 0;
+  --ion-color-light-shade: #e0dfd9;
+  --ion-color-light-tint: #fffef8;
+
+  /** Background Colors **/
+  --ion-background-color: #FFFEF7;
+  --ion-background-color-rgb: 255, 254, 247;
+
+  --ion-text-color: #2C1810;
+  --ion-text-color-rgb: 44, 24, 16;
+
+  --ion-color-step-50: #fffef8;
+  --ion-color-step-100: #fffef0;
+  --ion-color-step-150: #fffdE9;
+  --ion-color-step-200: #fffde1;
+  --ion-color-step-250: #fffcda;
+  --ion-color-step-300: #fffcd2;
+  --ion-color-step-350: #fffbcb;
+  --ion-color-step-400: #fffbc3;
+  --ion-color-step-450: #fffabc;
+  --ion-color-step-500: #fffab4;
+  --ion-color-step-550: #fff9ad;
+  --ion-color-step-600: #fff9a5;
+  --ion-color-step-650: #fff89e;
+  --ion-color-step-700: #fff896;
+  --ion-color-step-750: #fff78f;
+  --ion-color-step-800: #fff787;
+  --ion-color-step-850: #fff680;
+  --ion-color-step-900: #fff678;
+  --ion-color-step-950: #fff571;
+}

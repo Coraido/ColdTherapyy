@@ -1,0 +1,123 @@
+.help-page {
+  background: #FFFEF7;
+  min-height: 100%;
+  padding-bottom: 20px;
+}
+
+.help-header {
+  text-align: center;
+  padding: 40px 20px 20px;
+  background: linear-gradient(135deg, var(--ion-color-primary) 0%, var(--ion-color-secondary) 100%);
+  color: white;
+}
+
+.help-header h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin: 0 0 10px 0;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.help-header p {
+  font-size: 1.1rem;
+  margin: 0;
+  opacity: 0.95;
+}
+
+.faq-card {
+  margin: 20px 16px;
+  border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.faq-card ion-card-title {
+  color: var(--ion-color-primary);
+  font-size: 1.4rem;
+  font-weight: 700;
+}
+
+.faq-card ion-accordion-group {
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.faq-card ion-accordion {
+  margin-bottom: 8px;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.faq-card ion-item {
+  --background: #FFF8F0;
+  --border-radius: 10px;
+  --padding-start: 16px;
+  --padding-end: 16px;
+  margin-bottom: 2px;
+}
+
+.faq-card ion-item h2 {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--ion-color-dark);
+}
+
+.faq-card ion-accordion [slot="content"] {
+  background: white;
+  color: var(--ion-color-medium);
+  font-size: 0.95rem;
+  line-height: 1.6;
+  border-left: 3px solid var(--ion-color-secondary);
+}
+
+.help-contact-card {
+  margin: 20px 16px;
+  border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  background: linear-gradient(135deg, #FFF8F0 0%, #FFE8E8 100%);
+  text-align: center;
+}
+
+.help-contact-card ion-card-title {
+  color: var(--ion-color-primary);
+  font-size: 1.4rem;
+  font-weight: 700;
+}
+
+.help-contact-card p {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--ion-color-dark);
+  margin-bottom: 20px;
+}
+
+.contact-link {
+  display: inline-block;
+  padding: 12px 32px;
+  background: var(--ion-color-primary);
+  color: white;
+  text-decoration: none;
+  border-radius: 25px;
+  font-weight: 600;
+  font-size: 1.1rem;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  box-shadow: 0 4px 8px rgba(255, 107, 157, 0.3);
+}
+
+.contact-link:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(255, 107, 157, 0.4);
+}
+
+@media (max-width: 768px) {
+  .help-header h1 {
+    font-size: 2rem;
+  }
+
+  .help-header p {
+    font-size: 1rem;
+  }
+
+  .faq-card ion-item h2 {
+    font-size: 0.95rem;
+  }
+}

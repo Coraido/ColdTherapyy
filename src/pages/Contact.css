@@ -1,0 +1,124 @@
+.contact-page {
+  background: #FFFEF7;
+  min-height: 100%;
+  padding-bottom: 20px;
+}
+
+.contact-header {
+  text-align: center;
+  padding: 40px 20px 20px;
+  background: linear-gradient(135deg, var(--ion-color-primary) 0%, var(--ion-color-secondary) 100%);
+  color: white;
+}
+
+.contact-header h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin: 0 0 10px 0;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.contact-header p {
+  font-size: 1.1rem;
+  margin: 0;
+  opacity: 0.95;
+}
+
+.contact-info-card,
+.contact-form-card {
+  margin: 20px 16px;
+  border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.contact-info-card ion-card-title,
+.contact-form-card ion-card-title {
+  color: var(--ion-color-primary);
+  font-size: 1.4rem;
+  font-weight: 700;
+}
+
+.contact-item {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 24px;
+  padding: 12px;
+  background: #FFF8F0;
+  border-radius: 12px;
+  transition: transform 0.2s ease;
+}
+
+.contact-item:hover {
+  transform: translateX(4px);
+}
+
+.contact-icon {
+  font-size: 2rem;
+  color: var(--ion-color-secondary);
+  margin-right: 16px;
+  min-width: 32px;
+}
+
+.contact-item h3 {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--ion-color-dark);
+  margin: 0 0 4px 0;
+}
+
+.contact-item p {
+  font-size: 0.95rem;
+  color: var(--ion-color-medium);
+  margin: 0;
+  line-height: 1.5;
+}
+
+.form-item {
+  margin-bottom: 20px;
+  --background: white;
+  --border-radius: 10px;
+  --padding-start: 16px;
+  --padding-end: 16px;
+  --color: #2C2C2C;
+  --placeholder-color: #999999;
+}
+
+.form-item ion-label {
+  font-weight: 600;
+  color: #2C2C2C !important;
+  margin-bottom: 8px;
+  font-size: 1rem;
+}
+
+.form-item ion-input,
+.form-item ion-textarea {
+  --color: #2C2C2C !important;
+  --placeholder-color: #999999 !important;
+}
+
+.form-item ion-input::part(native),
+.form-item ion-textarea::part(native) {
+  color: #2C2C2C !important;
+}
+
+.submit-btn {
+  margin-top: 20px;
+  height: 50px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  --border-radius: 12px;
+}
+
+@media (max-width: 768px) {
+  .contact-header h1 {
+    font-size: 2rem;
+  }
+
+  .contact-header p {
+    font-size: 1rem;
+  }
+
+  .contact-icon {
+    font-size: 1.5rem;
+  }
+}

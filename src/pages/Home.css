@@ -93,3 +93,42 @@ ion-toolbar {
   width: 1.8rem;
   height: 1.8rem;
 }
+
+/* Desktop Navigation Buttons */
+.desktop-nav-buttons {
+  display: none;
+}
+
+@media (min-width: 992px) {
+  .desktop-nav-buttons {
+    display: flex;
+    gap: 4px;
+    margin-right: 16px;
+  }
+
+  .desktop-nav-buttons ion-button {
+    --padding-start: 12px;
+    --padding-end: 12px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    text-transform: none;
+  }
+
+  .desktop-nav-buttons ion-button ion-icon {
+    font-size: 1.1rem;
+    margin-right: 4px;
+  }
+
+  .desktop-nav-buttons ion-button[color="secondary"] {
+    --background: var(--ion-color-secondary);
+    --background-hover: var(--ion-color-secondary-shade);
+    --color: var(--ion-color-secondary-contrast);
+    font-weight: 600;
+  }
+}
+
+@media (max-width: 991px) {
+  .desktop-nav-buttons {
+    display: none !important;
+  }
+}

@@ -92,3 +92,24 @@ ion-menu.ios ion-note {
   padding-left: 16px;
   padding-right: 16px;
 }
+
+.download-card {
+  margin: 20px 16px;
+  border-radius: 12px;
+}
+
+.download-description {
+  font-size: 0.9rem;
+  color: var(--ion-color-medium);
+  margin-bottom: 16px;
+  text-align: center;
+}
+
+.download-button {
+  margin-bottom: 8px;
+  --border-radius: 8px;
+}
+
+.download-button ion-icon {
+  font-size: 1.2rem;
+}

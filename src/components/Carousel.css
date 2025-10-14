@@ -1,0 +1,71 @@
+/* Carousel slide container */
+.slide-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.slide-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Text overlay */
+.slide-text {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0.5) 70%, transparent 100%);
+  color: white;
+  padding: 30px 20px 20px;
+  text-align: center;
+}
+
+.slide-text h2 {
+  font-size: 2rem;
+  font-weight: 700;
+  margin: 0 0 8px 0;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  color: var(--ion-color-primary);
+}
+
+.slide-text p {
+  font-size: 1.1rem;
+  margin: 0;
+  font-weight: 400;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .slide-text {
+    padding: 20px 15px 15px;
+  }
+
+  .slide-text h2 {
+    font-size: 1.5rem;
+  }
+
+  .slide-text p {
+    font-size: 0.9rem;
+  }
+}
+
+@media (min-width: 769px) {
+  .slide-text {
+    padding: 40px 30px 25px;
+  }
+
+  .slide-text h2 {
+    font-size: 2.5rem;
+  }
+
+  .slide-text p {
+    font-size: 1.2rem;
+  }
+}

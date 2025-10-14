@@ -71,7 +71,7 @@ const ProductDetail: React.FC = () => {
       <IonContent>
         <div className="product-detail">
           <img 
-            src={`https://placehold.co/400x300?text=${encodeURIComponent(product.name)}`}
+            src={product.image}
             alt={product.name}
             className="product-detail-image"
           />
@@ -84,8 +84,8 @@ const ProductDetail: React.FC = () => {
             <IonCardContent>
               <div className="product-info">
                 <p className="product-description">
-                  Indulge in our premium {product.name.toLowerCase()} ice cream, made with the finest ingredients. 
-                  Creamy, delicious, and perfect for any occasion. Each scoop is crafted to perfection 
+                  {product.description || `Indulge in our premium ${product.name.toLowerCase()} ice cream, made with the finest ingredients.`}
+                  {' '}Creamy, delicious, and perfect for any occasion. Each scoop is crafted to perfection 
                   to deliver an unforgettable taste experience.
                 </p>
                 
@@ -100,7 +100,7 @@ const ProductDetail: React.FC = () => {
                 </div>
                 
                 <div className="price-section">
-                  <span className="price">${product.price.toFixed(2)}</span>
+                  <span className="price">₱{product.price.toFixed(2)}</span>
                   <IonButton 
                     expand="block" 
                     color="primary" 

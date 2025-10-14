@@ -25,17 +25,22 @@ const ProductGrid: React.FC = () => {
           {flavors.map((flavor) => (
             <IonCol size="12" sizeMd="6" sizeLg="4" key={flavor.id}>
               <IonCard className="product-card" key={flavor.id}>
-                <img 
-                  src={`https://placehold.co/300x200?text=${encodeURIComponent(flavor.name)}`} 
-                  alt={flavor.name}
-                  className="product-image"
-                  onClick={() => window.location.href = `/product/${flavor.id}`}
-                />
+                <div className="product-image-container">
+                  <img 
+                    src={flavor.image} 
+                    alt={flavor.name}
+                    className="product-image"
+                    onClick={() => window.location.href = `/product/${flavor.id}`}
+                  />
+                </div>
                 <IonCardHeader>
                   <IonCardTitle>{flavor.name}</IonCardTitle>
+                  {flavor.description && (
+                    <p className="product-description">{flavor.description}</p>
+                  )}
                 </IonCardHeader>
                 <IonCardContent>
-                  <p className="product-price">${flavor.price.toFixed(2)}</p>
+                  <p className="product-price">₱{flavor.price.toFixed(2)}</p>
                   <IonButton 
                     expand="block" 
                     color="primary"

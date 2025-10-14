@@ -130,10 +130,10 @@ const Checkout: React.FC = () => {
                   <IonItem key={item.id}>
                     <IonLabel>
                       <h3>{item.name}</h3>
-                      <p>Quantity: {item.quantity} × ${item.price.toFixed(2)}</p>
+                      <p>Quantity: {item.quantity} × ₱{item.price.toFixed(2)}</p>
                     </IonLabel>
                     <IonText slot="end">
-                      ${(item.price * item.quantity).toFixed(2)}
+                      ₱{(item.price * item.quantity).toFixed(2)}
                     </IonText>
                   </IonItem>
                 ))}
@@ -143,7 +143,7 @@ const Checkout: React.FC = () => {
                   <IonRow>
                     <IonCol>
                       <IonText color="dark">
-                        <h2>Total: ${state.total.toFixed(2)}</h2>
+                        <h2>Total: ₱{state.total.toFixed(2)}</h2>
                       </IonText>
                     </IonCol>
                   </IonRow>
@@ -243,7 +243,7 @@ const Checkout: React.FC = () => {
               onClick={placeOrder}
               disabled={!isFormValid()}
             >
-              Place Order - ${state.total.toFixed(2)}
+              Place Order - ₱{state.total.toFixed(2)}
             </IonButton>
           </div>
         </div>

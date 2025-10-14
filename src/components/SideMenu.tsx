@@ -12,6 +12,11 @@ import {
   IonHeader,
   IonToolbar,
   IonTitle,
+  IonCard,
+  IonCardContent,
+  IonCardHeader,
+  IonCardTitle,
+  IonButton,
 } from '@ionic/react';
 import {
   homeOutline,
@@ -26,6 +31,7 @@ import {
   cartSharp,
   personOutline,
   personSharp,
+  logoGooglePlaystore,
 } from 'ionicons/icons';
 import { useLocation } from 'react-router-dom';
 import './SideMenu.css';
@@ -112,6 +118,21 @@ const SideMenu: React.FC = () => {
             );
           })}
         </IonList>
+
+        <IonCard className="download-card">
+          <IonCardHeader>
+            <IonCardTitle>Download the app now!</IonCardTitle>
+          </IonCardHeader>
+          <IonCardContent>
+            <p className="download-description">
+              Get the best ice cream shopping experience on your Android device
+            </p>
+            <IonButton expand="block" color="primary" className="download-button">
+              <IonIcon slot="start" icon={logoGooglePlaystore} />
+              Download APK
+            </IonButton>
+          </IonCardContent>
+        </IonCard>
       </IonContent>
     </IonMenu>
   );

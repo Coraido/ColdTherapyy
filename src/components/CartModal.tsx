@@ -64,13 +64,21 @@ const CartModal: React.FC<CartModalProps> = ({ isOpen, onDidDismiss }) => {
           <>
             <IonList>
               {state.items.map((item) => (
-                <IonItem key={item.id}>
+                <IonItem key={item.id} className="cart-item">
                   <IonGrid>
-                    <IonRow>
-                      <IonCol size="8">
+                    <IonRow className="align-items-center">
+                      <IonCol size="3" className="cart-image-col">
+                        <img 
+                          src={item.image} 
+                          alt={item.name}
+                          className="cart-item-image"
+                        />
+                      </IonCol>
+                      <IonCol size="5">
                         <IonLabel>
-                          <h2>{item.name}</h2>
-                          <p>${item.price.toFixed(2)} each</p>
+                          <h2 className="cart-item-name">{item.name}</h2>
+                          <p className="cart-item-price">₱{item.price.toFixed(2)} each</p>
+                          <p className="cart-item-subtotal">Subtotal: ₱{(item.price * item.quantity).toFixed(2)}</p>
                         </IonLabel>
                       </IonCol>
                       <IonCol size="4" className="cart-controls">
@@ -79,6 +87,7 @@ const CartModal: React.FC<CartModalProps> = ({ isOpen, onDidDismiss }) => {
                             size="small"
                             fill="clear"
                             onClick={() => updateQuantity(item.id, item.quantity - 1)}
+                            className="qty-btn"
                           >
                             <IonIcon icon={remove} />
                           </IonButton>
@@ -87,6 +96,7 @@ const CartModal: React.FC<CartModalProps> = ({ isOpen, onDidDismiss }) => {
                             size="small"
                             fill="clear"
                             onClick={() => updateQuantity(item.id, item.quantity + 1)}
+                            className="qty-btn"
                           >
                             <IonIcon icon={add} />
                           </IonButton>
@@ -96,6 +106,7 @@ const CartModal: React.FC<CartModalProps> = ({ isOpen, onDidDismiss }) => {
                           fill="clear"
                           color="danger"
                           onClick={() => removeItem(item.id)}
+                          className="remove-btn"
                         >
                           <IonIcon icon={trash} />
                         </IonButton>
@@ -110,7 +121,7 @@ const CartModal: React.FC<CartModalProps> = ({ isOpen, onDidDismiss }) => {
                 <IonRow>
                   <IonCol>
                     <IonText color="dark">
-                      <h2>Total: ${state.total.toFixed(2)}</h2>
+                      <h2>Total: ₱{state.total.toFixed(2)}</h2>
                     </IonText>
                   </IonCol>
                 </IonRow>

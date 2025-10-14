@@ -4,6 +4,11 @@ import { IonReactRouter } from '@ionic/react-router';
 import Home from './pages/Home';
 import ProductDetail from './pages/ProductDetail';
 import Checkout from './pages/Checkout';
+import About from './pages/About';
+import Contact from './pages/Contact';
+import Help from './pages/Help';
+import Orders from './pages/Orders';
+import Profile from './pages/Profile';
 import SideMenu from './components/SideMenu';
 import { CartProvider } from './context/CartContext';
 
@@ -54,6 +59,21 @@ const App: React.FC = () => (
             </Route>
             <Route exact path="/checkout">
               <Checkout />
+            </Route>
+            <Route exact path="/about">
+              <About />
+            </Route>
+            <Route exact path="/contact">
+              <Contact />
+            </Route>
+            <Route exact path="/help">
+              <Help />
+            </Route>
+            <Route exact path="/orders">
+              <Orders />
+            </Route>
+            <Route exact path="/profile">
+              <Profile />
             </Route>
             <Route exact path="/">
               <Redirect to="/home" />

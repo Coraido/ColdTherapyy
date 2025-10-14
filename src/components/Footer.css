@@ -67,5 +67,59 @@
 .footer-bottom p {
   margin: 0;
   font-size: 0.8rem;
-  color: var(--ion-color-medium);
+  color: white;
+}
+
+/* Social Media Links */
+.social-links {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 10px;
+}
+
+.social-button {
+  --color: white;
+  --padding-start: 8px;
+  --padding-end: 8px;
+}
+
+.social-button ion-icon {
+  font-size: 1.5rem;
+}
+
+/* Footer Links */
+.footer-links {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+
+.footer-link {
+  --color: white;
+  --padding-start: 8px;
+  --padding-end: 8px;
+  font-size: 0.9rem;
+  text-transform: none;
+}
+
+/* Contact Info Buttons */
+.contact-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+
+.contact-button {
+  --color: white;
+  --padding-start: 8px;
+  --padding-end: 8px;
+  font-size: 0.9rem;
+  text-transform: none;
+}
+
+.contact-button ion-icon {
+  margin-right: 6px;
 }

@@ -1,0 +1,132 @@
+.login-content {
+  --background: #FFFEF7;
+}
+
+.login-container {
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.login-header {
+  text-align: center;
+  padding: 40px 20px 20px;
+}
+
+.login-header h1 {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--ion-color-primary);
+  margin: 0 0 10px 0;
+}
+
+.login-header p {
+  font-size: 1rem;
+  color: var(--ion-color-medium);
+  margin: 0;
+}
+
+.login-card {
+  margin: 20px 0;
+  border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.login-card ion-card-title {
+  color: var(--ion-color-primary);
+  font-size: 1.4rem;
+  font-weight: 700;
+}
+
+.input-group {
+  margin-bottom: 20px;
+}
+
+.input-label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #4ECDC4;
+  margin-bottom: 8px;
+  padding-left: 4px;
+}
+
+.input-label ion-icon {
+  font-size: 1.1rem;
+}
+
+.login-item {
+  --background: #F5F5F5;
+  --border-radius: 10px;
+  --padding-start: 16px;
+  --padding-end: 16px;
+  --min-height: 50px;
+  border: 2px solid transparent;
+  transition: all 0.3s ease;
+}
+
+.login-item:focus-within {
+  --background: white;
+  border: 2px solid var(--ion-color-primary);
+  box-shadow: 0 2px 8px rgba(255, 107, 157, 0.2);
+}
+
+.login-item ion-input {
+  --color: #2C2C2C !important;
+  --placeholder-color: #999999 !important;
+  --padding-start: 0;
+  --padding-end: 0;
+}
+
+.login-item ion-input::part(native) {
+  color: #2C2C2C !important;
+}
+
+.login-button {
+  margin-top: 20px;
+  height: 50px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  --border-radius: 12px;
+}
+
+.login-footer {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.signup-link {
+  color: var(--ion-color-primary);
+  font-weight: 600;
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.signup-link:hover {
+  color: var(--ion-color-primary-shade);
+}
+
+.demo-card {
+  margin: 10px 0;
+  border-radius: 12px;
+  background: #f0f8ff;
+}
+
+.demo-text {
+  font-size: 0.9rem;
+  line-height: 1.6;
+  margin: 0;
+  text-align: center;
+}
+
+@media (max-width: 768px) {
+  .login-header h1 {
+    font-size: 1.5rem;
+  }
+  
+  .login-container {
+    padding: 10px;
+  }
+}

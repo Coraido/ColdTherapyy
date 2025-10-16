@@ -22,9 +22,12 @@ import {
   IonText,
   IonBackButton,
   IonButtons,
-  IonToast
+  IonToast,
+  IonSpinner
 } from '@ionic/react';
 import { useCart } from '../context/CartContext';
+import { createOrder } from '../firebase/firestore';
+import { getCurrentUser } from '../firebase/auth';
 import './Checkout.css';
 
 const Checkout: React.FC = () => {
@@ -39,7 +42,10 @@ const Checkout: React.FC = () => {
     paymentMethod: 'credit'
   });
   const [showToast, setShowToast] = useState(false);
+  const [toastMessage, setToastMessage] = useState('');
   const [orderPlaced, setOrderPlaced] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [savedOrderId, setSavedOrderId] = useState('');
 
   const handleInputChange = (field: string, value: string) => {
     setCustomerInfo(prev => ({
@@ -53,11 +59,65 @@ const Checkout: React.FC = () => {
            customerInfo.address && customerInfo.city && customerInfo.zipCode;
   };
 
-  const placeOrder = () => {
-    if (isFormValid() && state.items.length > 0) {
-      setOrderPlaced(true);
+  const placeOrder = async () => {
+    if (!isFormValid() || state.items.length === 0) {
+      setToastMessage('Please fill in all required fields');
       setShowToast(true);
-      dispatch({ type: 'CLEAR_CART' });
+      return;
+    }
+
+    setLoading(true);
+
+    try {
+      // Get current user or use 'guest'
+      const currentUser = getCurrentUser();
+      const userId = currentUser ? currentUser.uid : 'guest';
+
+      // Prepare order data
+      const orderData = {
+        userId,
+        items: state.items.map(item => ({
+          id: item.id,
+          name: item.name,
+          price: item.price,
+          quantity: item.quantity,
+          image: item.image || ''
+        })),
+        total: state.total,
+        status: 'pending' as const,
+        shippingInfo: {
+          name: customerInfo.name,
+          email: customerInfo.email,
+          phone: customerInfo.phone,
+          address: `${customerInfo.address}, ${customerInfo.city}, ${customerInfo.zipCode}`
+        }
+      };
+
+      // Save order to Firebase
+      const result = await createOrder(orderData);
+      
+      if (result.success) {
+        console.log('✅ Order saved to Firebase! Order ID:', result.orderId);
+        setSavedOrderId(result.orderId || '');
+        
+        // Clear cart
+        dispatch({ type: 'CLEAR_CART' });
+        
+        // Show success
+        setOrderPlaced(true);
+        setToastMessage('Order placed successfully!');
+        setShowToast(true);
+      } else {
+        console.error('❌ Failed to save order:', result.error);
+        setToastMessage('Failed to place order. Please try again.');
+        setShowToast(true);
+      }
+    } catch (error) {
+      console.error('❌ Error placing order:', error);
+      setToastMessage('An error occurred. Please try again.');
+      setShowToast(true);
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -74,6 +134,9 @@ const Checkout: React.FC = () => {
             <div className="success-icon">✅</div>
             <h1>Order Placed Successfully!</h1>
             <p>Thank you for your order. You will receive a confirmation email shortly.</p>
+            {savedOrderId && (
+              <p className="order-id">Order ID: <strong>{savedOrderId}</strong></p>
+            )}
             <IonButton expand="block" routerLink="/home" color="primary">
               Continue Shopping
             </IonButton>
@@ -241,9 +304,15 @@ const Checkout: React.FC = () => {
               color="primary"
               size="large"
               onClick={placeOrder}
-              disabled={!isFormValid()}
+              disabled={!isFormValid() || loading}
             >
-              Place Order - ₱{state.total.toFixed(2)}
+              {loading ? (
+                <>
+                  <IonSpinner name="crescent" /> Placing Order...
+                </>
+              ) : (
+                `Place Order - ₱${state.total.toFixed(2)}`
+              )}
             </IonButton>
           </div>
         </div>
@@ -251,7 +320,7 @@ const Checkout: React.FC = () => {
         <IonToast
           isOpen={showToast}
           onDidDismiss={() => setShowToast(false)}
-          message="Order placed successfully!"
+          message={toastMessage}
           duration={3000}
           color="success"
         />

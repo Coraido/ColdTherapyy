@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import {
   IonContent,
   IonIcon,
@@ -32,8 +32,13 @@ import {
   personOutline,
   personSharp,
   logoGooglePlaystore,
+  logInOutline,
+  logInSharp,
+  personAddOutline,
+  personAddSharp,
 } from 'ionicons/icons';
 import { useLocation } from 'react-router-dom';
+import { getCurrentUser, onAuthChange } from '../firebase/auth';
 import './SideMenu.css';
 
 interface AppPage {
@@ -84,6 +89,16 @@ const appPages: AppPage[] = [
 
 const SideMenu: React.FC = () => {
   const location = useLocation();
+  const [user, setUser] = useState<any>(null);
+
+  useEffect(() => {
+    // Listen to auth state changes
+    const unsubscribe = onAuthChange((currentUser) => {
+      setUser(currentUser);
+    });
+
+    return () => unsubscribe();
+  }, []);
 
   return (
     <IonMenu contentId="main" type="overlay">
@@ -118,6 +133,30 @@ const SideMenu: React.FC = () => {
             );
           })}
         </IonList>
+
+        {/* Auth Section */}
+        {!user ? (
+          <IonList>
+            <IonListHeader>Account</IonListHeader>
+            <IonMenuToggle autoHide={false}>
+              <IonItem routerLink="/login" routerDirection="none" lines="none" detail={false}>
+                <IonIcon aria-hidden="true" slot="start" ios={logInOutline} md={logInSharp} />
+                <IonLabel>Login</IonLabel>
+              </IonItem>
+            </IonMenuToggle>
+            <IonMenuToggle autoHide={false}>
+              <IonItem routerLink="/signup" routerDirection="none" lines="none" detail={false}>
+                <IonIcon aria-hidden="true" slot="start" ios={personAddOutline} md={personAddSharp} />
+                <IonLabel>Sign Up</IonLabel>
+              </IonItem>
+            </IonMenuToggle>
+          </IonList>
+        ) : (
+          <IonList>
+            <IonListHeader>Welcome, {user.displayName || 'User'}!</IonListHeader>
+            <IonNote>{user.email}</IonNote>
+          </IonList>
+        )}
 
         <IonCard className="download-card">
           <IonCardHeader>

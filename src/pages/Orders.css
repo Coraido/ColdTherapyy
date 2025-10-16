@@ -4,6 +4,13 @@
   padding-bottom: 20px;
 }
 
+.loading-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50vh;
+}
+
 .orders-header {
   text-align: center;
   padding: 40px 20px 20px;
@@ -102,12 +109,13 @@
 }
 
 .order-total {
-  font-size: 1.1rem;
-  color: var(--ion-color-dark);
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #4ECDC4;
 }
 
 .order-total strong {
-  color: var(--ion-color-primary);
+  color: #4ECDC4;
   font-weight: 700;
 }
 

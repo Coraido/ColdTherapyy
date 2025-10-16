@@ -9,6 +9,8 @@ import Contact from './pages/Contact';
 import Help from './pages/Help';
 import Orders from './pages/Orders';
 import Profile from './pages/Profile';
+import Login from './pages/Login';
+import Signup from './pages/Signup';
 import SideMenu from './components/SideMenu';
 import { CartProvider } from './context/CartContext';
 
@@ -74,6 +76,12 @@ const App: React.FC = () => (
             </Route>
             <Route exact path="/profile">
               <Profile />
+            </Route>
+            <Route exact path="/login">
+              <Login />
+            </Route>
+            <Route exact path="/signup">
+              <Signup />
             </Route>
             <Route exact path="/">
               <Redirect to="/home" />

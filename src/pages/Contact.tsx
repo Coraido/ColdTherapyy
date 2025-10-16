@@ -21,23 +21,63 @@ import {
   IonGrid,
   IonRow,
   IonCol,
+  IonSpinner,
 } from '@ionic/react';
 import { callOutline, mailOutline, locationOutline, timeOutline } from 'ionicons/icons';
+import { submitContactForm } from '../firebase/firestore';
 import Footer from '../components/Footer';
 import './Contact.css';
 
 const Contact: React.FC = () => {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
+  const [subject, setSubject] = useState('');
   const [message, setMessage] = useState('');
   const [showToast, setShowToast] = useState(false);
+  const [toastMessage, setToastMessage] = useState('');
+  const [loading, setLoading] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setShowToast(true);
-    setName('');
-    setEmail('');
-    setMessage('');
+    
+    if (!name || !email || !subject || !message) {
+      setToastMessage('Please fill in all fields');
+      setShowToast(true);
+      return;
+    }
+
+    setLoading(true);
+
+    try {
+      const result = await submitContactForm({
+        name,
+        email,
+        subject,
+        message
+      });
+
+      if (result.success) {
+        console.log('✅ Contact message saved! Message ID:', result.messageId);
+        setToastMessage('Message sent successfully! We will get back to you soon.');
+        setShowToast(true);
+        
+        // Clear form
+        setName('');
+        setEmail('');
+        setSubject('');
+        setMessage('');
+      } else {
+        console.error('❌ Failed to send message:', result.error);
+        setToastMessage('Failed to send message. Please try again.');
+        setShowToast(true);
+      }
+    } catch (error) {
+      console.error('❌ Error sending message:', error);
+      setToastMessage('An error occurred. Please try again.');
+      setShowToast(true);
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -124,6 +164,15 @@ const Contact: React.FC = () => {
                         />
                       </IonItem>
                       <IonItem className="form-item">
+                        <IonLabel position="stacked">Subject *</IonLabel>
+                        <IonInput
+                          value={subject}
+                          onIonChange={e => setSubject(e.detail.value!)}
+                          placeholder="What is this regarding?"
+                          required
+                        />
+                      </IonItem>
+                      <IonItem className="form-item">
                         <IonLabel position="stacked">Message *</IonLabel>
                         <IonTextarea
                           value={message}
@@ -138,8 +187,15 @@ const Contact: React.FC = () => {
                         type="submit"
                         color="primary"
                         className="submit-btn"
+                        disabled={loading}
                       >
-                        Send Message
+                        {loading ? (
+                          <>
+                            <IonSpinner name="crescent" /> Sending...
+                          </>
+                        ) : (
+                          'Send Message'
+                        )}
                       </IonButton>
                     </form>
                   </IonCardContent>
@@ -152,7 +208,7 @@ const Contact: React.FC = () => {
         <IonToast
           isOpen={showToast}
           onDidDismiss={() => setShowToast(false)}
-          message="Thank you! Your message has been sent successfully."
+          message={toastMessage}
           duration={3000}
           color="success"
         />

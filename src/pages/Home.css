@@ -21,9 +21,11 @@ ion-header {
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
+/* Ensure toolbar has relative positioning */
 ion-toolbar {
   --background: var(--ion-color-primary);
   --color: white;
+  position: relative;
 }
 
 .header-logo-container {
@@ -51,9 +53,18 @@ ion-toolbar {
   letter-spacing: 0.5px;
   text-transform: uppercase;
   position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
-  width: auto;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  width: 100%;
+  pointer-events: none;
+}
+
+/* Ensure toolbar has relative positioning */
+ion-toolbar {
+  --background: var(--ion-color-primary);
+  --color: white;
+  position: relative;
 }
 
 /* Welcome section */

@@ -4,6 +4,13 @@
   padding-bottom: 20px;
 }
 
+.loading-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
 .profile-header {
   text-align: center;
   padding: 40px 20px 30px;

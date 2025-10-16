@@ -28,9 +28,6 @@ const Home: React.FC = () => {
           <IonButtons slot="start">
             <IonMenuButton />
           </IonButtons>
-          <div slot="start" className="header-logo-container">
-            <img src="/images/logo.png" alt="Cold Therapy Logo" className="header-logo" />
-          </div>
           <IonTitle className="centered-title">Cold Therapy</IonTitle>
           
           {/* Desktop Navigation Buttons */}

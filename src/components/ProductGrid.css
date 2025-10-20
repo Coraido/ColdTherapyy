@@ -50,22 +50,31 @@
 
 .product-card ion-card-header {
   padding: 16px 16px 8px 16px;
+  text-align: center;
+}
+
+.product-card ion-card-header * {
+  text-align: center;
 }
 
 .product-card ion-card-title {
   font-size: 1.3rem;
   font-weight: 700;
-  color: var(--ion-color-dark);
+  color: #FF6B9D;
   margin-bottom: 8px;
   line-height: 1.3;
+  text-align: center;
 }
 
-.product-description {
+.product-card ion-card-header .product-description {
   font-size: 0.9rem;
-  color: var(--ion-color-medium);
+  color: #FF6B9D !important;
   margin: 8px 0 0 0;
   line-height: 1.4;
   font-style: italic;
+  text-align: center !important;
+  display: block;
+  width: 100%;
 }
 
 .product-card ion-card-content {

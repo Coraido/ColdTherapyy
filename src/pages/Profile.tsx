@@ -254,10 +254,6 @@ const Profile: React.FC = () => {
                   <div className="stat-number">₱{totalSpent.toFixed(2)}</div>
                   <div className="stat-label">Total Spent</div>
                 </div>
-                <div className="stat-item">
-                  <div className="stat-number">-</div>
-                  <div className="stat-label">Favorite Flavor</div>
-                </div>
               </div>
             </IonCardContent>
           </IonCard>

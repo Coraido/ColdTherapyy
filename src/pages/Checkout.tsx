@@ -305,6 +305,7 @@ const Checkout: React.FC = () => {
               size="large"
               onClick={placeOrder}
               disabled={!isFormValid() || loading}
+              className="place-order-btn"
             >
               {loading ? (
                 <>
@@ -313,6 +314,18 @@ const Checkout: React.FC = () => {
               ) : (
                 `Place Order - ₱${state.total.toFixed(2)}`
               )}
+            </IonButton>
+            
+            <IonButton
+              expand="block"
+              fill="outline"
+              color="danger"
+              size="large"
+              routerLink="/home"
+              disabled={loading}
+              className="cancel-order-btn"
+            >
+              Cancel Order
             </IonButton>
           </div>
         </div>

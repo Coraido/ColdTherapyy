@@ -19,6 +19,18 @@
   padding: 20px 0;
 }
 
+.place-order-btn {
+  margin-bottom: 12px;
+  font-weight: 600;
+  --border-radius: 12px;
+}
+
+.cancel-order-btn {
+  font-weight: 600;
+  --border-radius: 12px;
+  --border-width: 2px;
+}
+
 .empty-checkout {
   text-align: center;
   padding: 60px 20px;

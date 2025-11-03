@@ -1,0 +1,125 @@
+.splash-screen {
+  --background: linear-gradient(135deg, #FF6B9D 0%, #4ECDC4 100%);
+}
+
+.splash-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  padding: 40px;
+  animation: fadeIn 0.8s ease-in;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.logo-container {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.splash-logo {
+  width: 200px;
+  height: 200px;
+  object-fit: contain;
+  margin-bottom: 30px;
+  animation: logoFloat 2s ease-in-out infinite;
+  filter: drop-shadow(0 10px 25px rgba(0, 0, 0, 0.3));
+}
+
+@keyframes logoFloat {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+.app-name {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: white;
+  margin: 0 0 10px 0;
+  text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+  letter-spacing: 3px;
+  animation: slideUp 1s ease-out;
+}
+
+.app-tagline {
+  font-size: 1rem;
+  color: #FFFEF7;
+  margin: 0;
+  opacity: 0.95;
+  font-style: italic;
+  animation: slideUp 1.2s ease-out;
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.loading-animation {
+  display: flex;
+  gap: 15px;
+  margin-top: 40px;
+}
+
+.ice-cream-scoop {
+  width: 20px;
+  height: 20px;
+  background: white;
+  border-radius: 50%;
+  animation: bounce 1.4s ease-in-out infinite;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.ice-cream-scoop:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.ice-cream-scoop:nth-child(3) {
+  animation-delay: 0.4s;
+}
+
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+  .splash-logo {
+    width: 150px;
+    height: 150px;
+  }
+
+  .app-name {
+    font-size: 2rem;
+  }
+
+  .app-tagline {
+    font-size: 0.9rem;
+  }
+}

@@ -11,6 +11,7 @@ import Orders from './pages/Orders';
 import Profile from './pages/Profile';
 import Login from './pages/Login';
 import Signup from './pages/Signup';
+import SplashScreen from './pages/SplashScreen';
 import SideMenu from './components/SideMenu';
 import { CartProvider } from './context/CartContext';
 
@@ -53,6 +54,9 @@ const App: React.FC = () => (
         <SideMenu />
         <IonSplitPane contentId="main">
           <IonRouterOutlet id="main">
+            <Route exact path="/splash">
+              <SplashScreen />
+            </Route>
             <Route exact path="/home">
               <Home />
             </Route>
@@ -84,7 +88,7 @@ const App: React.FC = () => (
               <Signup />
             </Route>
             <Route exact path="/">
-              <Redirect to="/home" />
+              <Redirect to="/splash" />
             </Route>
           </IonRouterOutlet>
         </IonSplitPane>

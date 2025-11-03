@@ -17,8 +17,11 @@ const Home: React.FC = () => {
   const totalItems = state.items.reduce((sum, item) => sum + item.quantity, 0);
 
   const handleDownloadAPK = () => {
-    // You can link this to your actual APK download URL
-    alert('APK download will be available soon!');
+    // GitHub Releases URL - Update this after creating a release
+    const apkUrl = 'https://github.com/Coraido/ColdTherapyy/releases/latest/download/cold-therapy.apk';
+    
+    // Open download link
+    window.open(apkUrl, '_blank');
   };
 
   return (

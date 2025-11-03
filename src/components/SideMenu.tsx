@@ -166,7 +166,16 @@ const SideMenu: React.FC = () => {
             <p className="download-description">
               Get the best ice cream shopping experience on your Android device
             </p>
-            <IonButton expand="block" color="primary" className="download-button">
+            <IonButton 
+              expand="block" 
+              color="primary" 
+              className="download-button"
+              onClick={() => {
+                // GitHub Releases URL - Update this after creating a release
+                const apkUrl = 'https://github.com/Coraido/ColdTherapyy/releases/latest/download/cold-therapy.apk';
+                window.open(apkUrl, '_blank');
+              }}
+            >
               <IonIcon slot="start" icon={logoGooglePlaystore} />
               Download APK
             </IonButton>
